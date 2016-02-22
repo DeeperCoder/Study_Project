@@ -14,5 +14,6 @@
 
 // BEGIN_INCLUDE
 #include "Hello.dm"
+#include "Default_Map.dmm"
 // END_INCLUDE
 
