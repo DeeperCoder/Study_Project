@@ -53,12 +53,24 @@ mob
 	icon = 'player.dmi'
 	icon_state = "aliend_s"
 	luminosity = 3
+	life = 100
+
+	proc/hurt(damage)
+		src.life -= damage
+		if(life < 0)
+			view() << "[src] dies!"
+			del src
+
 	Login()
 		loc = locate(/turf/start)
 		world << key
 	verb
 		Die()
 			world << "[usr] is died"
+	verb
+		RealDie()
+			usr.hurt(150)
+			world << "Life now is " + life
 
 obj/object1
 	name = "Object 1"
